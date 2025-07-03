@@ -1,0 +1,92 @@
+
+
+
+name: zidney
+description: "A new Flutter project."
+publish_to: "none"
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.8.1
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+  dropdown_button2: ^2.3.9
+  get: ^4.7.2
+  flutter_svg: ^2.1.0
+  percent_indicator: ^4.2.5
+  image_picker: ^1.0.4
+  intl: ^0.20.2
+  flutter_screenutil: ^5.9.3
+  http: ^1.4.0
+  shared_preferences: ^2.5.3
+  flutter_stripe: ^11.5.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/
+
+  fonts:
+    - family: Futura
+      fonts:
+        - asset: assets/fonts/Futura Book font.ttf
+          weight: 400
+          style: normal
+        - asset: assets/fonts/Futura Book Italic font.ttf
+          weight: 400
+          style: italic
+
+        - asset: assets/fonts/futura light bt.ttf
+          weight: 300
+          style: normal
+        - asset: assets/fonts/Futura Light font.ttf
+          weight: 300
+          style: normal
+        - asset: assets/fonts/Futura Light Italic font.ttf
+          weight: 300
+          style: italic
+
+        - asset: assets/fonts/futura medium bt.ttf
+          weight: 500
+          style: normal
+        - asset: assets/fonts/futura medium condensed bt.ttf
+          weight: 500
+          style: normal
+        - asset: assets/fonts/Futura Medium Italic font.ttf
+          weight: 500
+          style: italic
+
+        - asset: assets/fonts/Futura Bold font.ttf
+          weight: 700
+          style: normal
+        - asset: assets/fonts/Futura Bold Italic font.ttf
+          weight: 700
+          style: italic
+
+        - asset: assets/fonts/Futura Heavy font.ttf
+          weight: 800
+          style: normal
+        - asset: assets/fonts/Futura Heavy Italic font.ttf
+          weight: 800
+          style: italic
+
+        - asset: assets/fonts/Futura XBlk BT.ttf
+          weight: 900
+          style: normal
+
+        # Extra or unknown fonts - include only if needed
+        - asset: assets/fonts/tt0205m_.ttf
+        - asset: assets/fonts/unicode.futurab.ttf
+        - asset: assets/fonts/unicode.futurabb.ttf
+
