@@ -5,7 +5,6 @@ class PaymentController extends GetxController{
 
    void setPaymentFlag(bool isPaymentStatus){
     isPaymentSuccess.value=isPaymentStatus;
-    print(isPaymentSuccess.value);
     update();
   }
 

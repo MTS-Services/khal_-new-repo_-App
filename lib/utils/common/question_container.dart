@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:zidney/utils/asset_path.dart';
 import 'package:zidney/utils/common/practice_button.dart';
 
@@ -29,14 +30,14 @@ class QuestionContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
+    return Obx(()=>Stack(
       children: [
         Positioned(
           left: -7,
           right: -6.9,
           bottom: 11.1,
           child: CustomProgressBar(
-            progressColor: AppColors.primaryColor,
+            progressColor: AppColors.primaryColor.value,
             backgroundColor: Colors.grey.shade300,
             percentage: percentage,
           ),
@@ -67,23 +68,23 @@ class QuestionContainer extends StatelessWidget {
               ),
               showTrailIcon
                   ? InkWell(
-                    onTap: onTap,
-                    child: Image.asset(trailIcon, scale: 4),
-                  )
+                onTap: onTap,
+                child: Image.asset(trailIcon, scale: 4),
+              )
                   : PracticeButton(
-                    showText: true,
-                    buttonText: 'Practice',
-                    showMoreShadow: true,
-                    buttonColor: AppColors.primaryColor,
-                    shadowColor: AppColors.primaryShadow,
-                    textColor: AppColors.whiteColor,
-                    iconColor: AppColors.whiteColor,
-                    onTap: onTap,
-                  ),
+                showText: true,
+                buttonText: 'Practice',
+                showMoreShadow: true,
+                buttonColor: AppColors.primaryColor.value,
+                shadowColor: AppColors.primaryShadow.value,
+                textColor: AppColors.whiteColor,
+                iconColor: AppColors.whiteColor,
+                onTap: onTap,
+              ),
             ],
           ),
         ),
       ],
-    );
+    ));
   }
 }

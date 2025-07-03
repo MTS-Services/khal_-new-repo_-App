@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:zidney/utils/app_colors.dart';
 import 'package:zidney/utils/app_style.dart';
 
@@ -24,7 +25,7 @@ class CustomTextFormField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
+    return Obx(()=> Padding(
       padding: AppStyles.paddingVerticalM,
       child: Container(
         height: AppStyles.heightL,
@@ -33,7 +34,7 @@ class CustomTextFormField extends StatelessWidget {
           borderRadius: AppStyles.radiusS,
           boxShadow: [
             BoxShadow(
-              color: AppColors.primaryColor,
+              color: AppColors.primaryColor.value,
               offset: const Offset(0, 1),
             ),
           ],
@@ -54,19 +55,19 @@ class CustomTextFormField extends StatelessWidget {
             ),
             border: OutlineInputBorder(
               borderRadius: AppStyles.radiusS,
-              borderSide: BorderSide(color: AppColors.primaryColor),
+              borderSide: BorderSide(color: AppColors.primaryColor.value),
             ),
             enabledBorder: OutlineInputBorder(
               borderRadius: AppStyles.radiusS,
-              borderSide: BorderSide(color: AppColors.primaryColor),
+              borderSide: BorderSide(color: AppColors.primaryColor.value),
             ),
             focusedBorder: OutlineInputBorder(
               borderRadius: AppStyles.radiusS,
-              borderSide: BorderSide(color: AppColors.primaryColor, width: 2),
+              borderSide: BorderSide(color: AppColors.primaryColor.value, width: 2),
             ),
           ),
         ),
       ),
-    );
+    ));
   }
 }

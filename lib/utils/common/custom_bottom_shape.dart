@@ -50,7 +50,7 @@ class CustomBottomShape extends StatelessWidget {
                       : CustomButton(
                         onTap: onTap,
                         buttonText: buttonText,
-                        backgroundColor: AppColors.chocolate,
+                        backgroundColor: AppColors.chocolate.value,
                         shadowColor: AppColors.chocolateShadow,
                       ),
             ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 import 'package:zidney/utils/app_colors.dart';
 import 'package:zidney/utils/app_style.dart';
 import 'package:zidney/utils/asset_path.dart';
@@ -24,7 +25,7 @@ class CustomPremiumCotainer extends StatelessWidget {
             fit: BoxFit.cover,
           ),
         ),
-        Row(
+        Obx(()=>Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             SvgPicture.asset(AssetPath.vector),
@@ -37,7 +38,7 @@ class CustomPremiumCotainer extends StatelessWidget {
                   style: TextStyle(
                     fontSize: AppStyles.fontXL,
                     fontWeight: AppStyles.weightMedium,
-                    color: AppColors.secondaryColor,
+                    color: AppColors.secondaryColor.value,
                   ),
                 ),
                 Row(
@@ -57,7 +58,7 @@ class CustomPremiumCotainer extends StatelessWidget {
               ],
             ),
           ],
-        ),
+        ),)
       ],
     );
   }

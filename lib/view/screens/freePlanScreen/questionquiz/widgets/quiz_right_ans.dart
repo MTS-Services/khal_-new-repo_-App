@@ -58,7 +58,7 @@ class QuizRightAns extends StatelessWidget {
             backgroundColor: Colors.white,
             shadowColor: AppColors.buttonGreenShadow,
             textColor: AppColors.blackColor,
-            border: Border.all(color: AppColors.primaryColor),
+            border: Border.all(color: AppColors.primaryColor.value),
             width: double.infinity,
           ),
           const SizedBox(height: 16),

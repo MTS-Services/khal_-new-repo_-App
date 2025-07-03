@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:zidney/utils/app_colors.dart';
 
 import '../../../../../utils/app_style.dart';
@@ -11,8 +12,8 @@ class CustomButton extends StatelessWidget {
   final Widget? child;
   final Widget? prefix;
   final Widget? suffix;
-  final Color backgroundColor;
-  final Color shadowColor;
+  final Color? backgroundColor;
+  final Color? shadowColor;
   final BorderRadius borderRadius;
   final Color textColor;
   final BoxBorder? border;
@@ -20,8 +21,8 @@ class CustomButton extends StatelessWidget {
   const CustomButton({
     super.key,
     this.child,
-    this.backgroundColor = AppColors.primaryColor,
-    this.shadowColor = AppColors.primaryShadow,
+    this.backgroundColor,
+    this.shadowColor,
     this.borderRadius = AppStyles.radiusS,
     required this.buttonText,
     this.prefix,
@@ -43,10 +44,10 @@ class CustomButton extends StatelessWidget {
           width: width,
           decoration: BoxDecoration(
             border: border,
-            color: backgroundColor,
+            color: backgroundColor ?? AppColors.primaryColor.value,
             borderRadius: borderRadius,
             boxShadow: [
-              BoxShadow(color: shadowColor, offset: const Offset(0, 12)),
+              BoxShadow(color: shadowColor ?? AppColors.primaryShadow.value, offset: const Offset(0, 12)),
             ],
           ),
           child: Row(

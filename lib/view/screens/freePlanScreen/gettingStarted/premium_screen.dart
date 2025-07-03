@@ -18,7 +18,7 @@ class PremiumScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
+      body: Obx(()=>Stack(
         children: [
           CustomBackground(image: AssetPath.appBackgroundtow),
           SingleChildScrollView(
@@ -80,8 +80,8 @@ class PremiumScreen extends StatelessWidget {
                   },
                   width: AppStyles.screenWidthPercentage(context, 0.4),
                   buttonText: "Get stared",
-                  backgroundColor: AppColors.secondaryColor,
-                  shadowColor: AppColors.secondaryShadow,
+                  backgroundColor: AppColors.secondaryColor.value,
+                  shadowColor: AppColors.secondaryShadow.value,
                   prefix: Image.asset(AssetPath.logInIcon, scale: 4),
                 ),
               ],
@@ -103,7 +103,7 @@ class PremiumScreen extends StatelessWidget {
             ),
           ),
         ],
-      ),
+      ),)
     );
   }
 

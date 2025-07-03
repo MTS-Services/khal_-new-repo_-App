@@ -62,12 +62,12 @@ class _QuizState extends State<Quiz> {
                       border: Border.all(
                         color:
                             selectedOption == 0
-                                ? AppColors.primaryColor
-                                : AppColors.primaryColor,
+                                ? AppColors.primaryColor.value
+                                : AppColors.primaryColor.value,
                       ),
                       backgroundColor:
                           selectedOption == 0
-                              ? AppColors.primaryColor
+                              ? AppColors.primaryColor.value
                               : AppColors.whiteColor,
                       textColor:
                           selectedOption == 0
@@ -88,12 +88,12 @@ class _QuizState extends State<Quiz> {
                       border: Border.all(
                         color:
                             selectedOption == 1
-                                ? AppColors.primaryColor
-                                : AppColors.primaryColor,
+                                ? AppColors.primaryColor.value
+                                : AppColors.primaryColor.value,
                       ),
                       backgroundColor:
                           selectedOption == 1
-                              ? AppColors.primaryColor
+                              ? AppColors.primaryColor.value
                               : AppColors.whiteColor,
                       textColor:
                           selectedOption == 1
@@ -120,12 +120,12 @@ class _QuizState extends State<Quiz> {
                       border: Border.all(
                         color:
                             selectedOption == 2
-                                ? AppColors.primaryColor
-                                : AppColors.primaryColor,
+                                ? AppColors.primaryColor.value
+                                : AppColors.primaryColor.value,
                       ),
                       backgroundColor:
                           selectedOption == 2
-                              ? AppColors.primaryColor
+                              ? AppColors.primaryColor.value
                               : AppColors.whiteColor,
                       textColor:
                           selectedOption == 2
@@ -146,12 +146,12 @@ class _QuizState extends State<Quiz> {
                       border: Border.all(
                         color:
                             selectedOption == 3
-                                ? AppColors.primaryColor
-                                : AppColors.primaryColor,
+                                ? AppColors.primaryColor.value
+                                : AppColors.primaryColor.value,
                       ),
                       backgroundColor:
                           selectedOption == 3
-                              ? AppColors.primaryColor
+                              ? AppColors.primaryColor.value
                               : AppColors.whiteColor,
                       textColor:
                           selectedOption == 3

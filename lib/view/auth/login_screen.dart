@@ -69,7 +69,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   Get.to(() => CreateAccountScreen());
                 },
                 buttonText: 'Create an Account',
-                backgroundColor: AppColors.chocolate,
+                backgroundColor: AppColors.chocolate.value,
                 shadowColor: AppColors.chocolateShadow,
               ),
             ],

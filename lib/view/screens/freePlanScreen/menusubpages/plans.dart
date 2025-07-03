@@ -10,9 +10,9 @@ import 'package:zidney/viewmodels/controller/payment_controller.dart';
 import '../../../../stripe_services/services.dart';
 
 class Plans extends StatelessWidget {
-   Plans({super.key});
+  Plans({super.key});
 
-  final _paymentController=Get.find<PaymentController>();
+  final _paymentController = Get.find<PaymentController>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,66 +24,90 @@ class Plans extends StatelessWidget {
         showAction: false,
       ),
       // body //
-      body: Center(
-        child: Column(
-          children: [
-            //logo and title//
-            SizedBox(height: 50),
-            SvgPicture.asset(AssetPath.vector),
-            SizedBox(height: 20),
-            Text("Zidney Premium", style: AppTextStyle.bold20),
+      body: Obx(
+        () => Center(
+          child: Column(
+            children: [
+              //logo and title//
+              SizedBox(height: 50),
+              SvgPicture.asset(AssetPath.vector),
+              SizedBox(height: 20),
+              Text("Zidney Premium", style: AppTextStyle.bold20),
 
-            //gap/
-            SizedBox(height: 20),
+              //gap/
+              SizedBox(height: 20),
 
-            // first button //
-            CustomButton(
-              border: Border.all(width: 1, color: AppColors.secondaryColor),
-              textColor: AppColors.secondaryColor,
-              backgroundColor: Colors.white,
-              width: 350,
-              shadowColor: AppColors.secondaryShadow,
-              onTap: () async{
-                bool isPaymentSuccess= await StripeService.instance.makePayment();
-                _paymentController.setPaymentFlag(isPaymentSuccess);
-              },
-              buttonText: '3 months subscription only ${9.99}',
-              height: 60,
-              prefix: SvgPicture.asset(AssetPath.vector, height: 30, width: 30),
-            ),
+              // first button //
+              CustomButton(
+                border: Border.all(
+                  width: 1,
+                  color: AppColors.secondaryColor.value,
+                ),
+                textColor: AppColors.secondaryColor.value,
+                backgroundColor: Colors.white,
+                width: 350,
+                shadowColor: AppColors.secondaryShadow.value,
+                onTap: () async {
+                  bool isPaymentSuccess = await StripeService.instance
+                      .makePayment();
+                  _paymentController.setPaymentFlag(isPaymentSuccess);
+                },
+                buttonText: '3 months subscription only ${9.99}',
+                height: 60,
+                prefix: SvgPicture.asset(
+                  AssetPath.vector,
+                  height: 30,
+                  width: 30,
+                ),
+              ),
 
-            //gap//
-            SizedBox(height: 20),
+              //gap//
+              SizedBox(height: 20),
 
-            //second button//
-            CustomButton(
-              border: Border.all(width: 1, color: AppColors.secondaryColor),
-              textColor: AppColors.secondaryColor,
-              backgroundColor: Colors.white,
-              width: 350,
-              shadowColor: AppColors.secondaryShadow,
-              onTap: () {},
-              buttonText: '6 months subscription only ${54.99}',
-              height: 60,
-              prefix: SvgPicture.asset(AssetPath.vector, height: 30, width: 30),
-            ),
+              //second button//
+              CustomButton(
+                border: Border.all(
+                  width: 1,
+                  color: AppColors.secondaryColor.value,
+                ),
+                textColor: AppColors.secondaryColor.value,
+                backgroundColor: Colors.white,
+                width: 350,
+                shadowColor: AppColors.secondaryShadow.value,
+                onTap: () {},
+                buttonText: '6 months subscription only ${54.99}',
+                height: 60,
+                prefix: SvgPicture.asset(
+                  AssetPath.vector,
+                  height: 30,
+                  width: 30,
+                ),
+              ),
 
-            //gap//
-            SizedBox(height: 20),
+              //gap//
+              SizedBox(height: 20),
 
-            // third button//
-            CustomButton(
-              border: Border.all(width: 1, color: AppColors.secondaryColor),
-              textColor: AppColors.secondaryColor,
-              backgroundColor: Colors.white,
-              width: 350,
-              shadowColor: AppColors.secondaryShadow,
-              onTap: () {},
-              buttonText: '1 year subscription only ${99.99}',
-              height: 60,
-              prefix: SvgPicture.asset(AssetPath.vector, height: 30, width: 30),
-            ),
-          ],
+              // third button//
+              CustomButton(
+                border: Border.all(
+                  width: 1,
+                  color: AppColors.secondaryColor.value,
+                ),
+                textColor: AppColors.secondaryColor.value,
+                backgroundColor: Colors.white,
+                width: 350,
+                shadowColor: AppColors.secondaryShadow.value,
+                onTap: () {},
+                buttonText: '1 year subscription only ${99.99}',
+                height: 60,
+                prefix: SvgPicture.asset(
+                  AssetPath.vector,
+                  height: 30,
+                  width: 30,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

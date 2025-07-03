@@ -57,6 +57,7 @@ class HomeScreen extends StatelessWidget {
                     Expanded(
                       flex: 3,
                       child: TopicOverviewCard(
+
                         chapter: '1',
                         classNum: '10',
                         showButtonText: true,

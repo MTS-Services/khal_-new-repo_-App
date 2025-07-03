@@ -79,7 +79,7 @@ class _PersonalInfoState extends State<PersonalInfo> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: AppBackground(
+      body: Obx(()=>AppBackground(
         showBgImage: 1,
         isScrollable: true,
         child: SingleChildScrollView(
@@ -105,44 +105,44 @@ class _PersonalInfoState extends State<PersonalInfo> {
                     maxRadius: 64,
                     backgroundColor: Colors.transparent,
                     backgroundImage:
-                        _imageFile != null
-                            ? FileImage(File(_imageFile!.path)) as ImageProvider
-                            : null,
+                    _imageFile != null
+                        ? FileImage(File(_imageFile!.path)) as ImageProvider
+                        : null,
                     child:
-                        _imageFile == null
-                            ? Stack(
-                              children: [
-                                SvgPicture.asset(
-                                  AssetPath.profileLogo,
-                                  height: 64,
-                                ),
-                                Positioned(
-                                  bottom: 0,
-                                  right: 0,
-                                  child: GestureDetector(
-                                    onTap: _pickImage,
-                                    child: SvgPicture.asset(
-                                      AssetPath.imageAddIcon,
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            )
-                            : Stack(
-                              children: [
-                                // When image is selected, show only the add icon on top of it
-                                Positioned(
-                                  bottom: 0,
-                                  right: 0,
-                                  child: GestureDetector(
-                                    onTap: _pickImage,
-                                    child: SvgPicture.asset(
-                                      AssetPath.imageAddIcon,
-                                    ),
-                                  ),
-                                ),
-                              ],
+                    _imageFile == null
+                        ? Stack(
+                      children: [
+                        SvgPicture.asset(
+                          AssetPath.profileLogo,
+                          height: 64,
+                        ),
+                        Positioned(
+                          bottom: 0,
+                          right: 0,
+                          child: GestureDetector(
+                            onTap: _pickImage,
+                            child: SvgPicture.asset(
+                              AssetPath.imageAddIcon,
                             ),
+                          ),
+                        ),
+                      ],
+                    )
+                        : Stack(
+                      children: [
+                        // When image is selected, show only the add icon on top of it
+                        Positioned(
+                          bottom: 0,
+                          right: 0,
+                          child: GestureDetector(
+                            onTap: _pickImage,
+                            child: SvgPicture.asset(
+                              AssetPath.imageAddIcon,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
@@ -162,8 +162,8 @@ class _PersonalInfoState extends State<PersonalInfo> {
               GestureDetector(
                 onTap: () => _pickDate(context),
                 child: CalenderScreen(
-                  backgroundColor: AppColors.whiteColor,
-                  border: Border.all(color: AppColors.primaryColor),
+                  //backgroundColor: AppColors.whiteColor,
+                  border: Border.all(color: AppColors.primaryColor.value),
                   height: AppStyles.screenWidthPercentage(context, 0.13),
                   width: AppStyles.screenWidthPercentage(context, 0.94),
                   selectedDate: _selectedDate,
@@ -244,7 +244,7 @@ class _PersonalInfoState extends State<PersonalInfo> {
             ],
           ),
         ),
-      ),
+      ),)
     );
   }
 

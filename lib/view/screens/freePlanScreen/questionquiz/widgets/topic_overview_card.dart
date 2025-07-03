@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 import 'package:zidney/utils/app_colors.dart';
 import 'package:zidney/utils/asset_path.dart';
 import 'package:zidney/utils/common/practice_button.dart';
 import 'package:zidney/utils/styles/app_text_styles.dart';
 import 'package:zidney/view/screens/freePlanScreen/questionquiz/widgets/custom_progress_bar.dart';
+import 'package:zidney/viewmodels/controller/payment_controller.dart';
 
 class TopicOverviewCard extends StatelessWidget {
   const TopicOverviewCard({
@@ -27,12 +29,12 @@ class TopicOverviewCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return Obx(()=>Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8.r),
-        color: const Color(0xffFCC962),
+        color: AppColors.primaryShadow.value,
         boxShadow: [
-          BoxShadow(offset: Offset(0, 10.h), color: const Color(0xffE49F13)),
+          BoxShadow(offset: Offset(0, 10.h), color: AppColors.primaryColor.value),
         ],
       ),
       child: Stack(
@@ -62,26 +64,26 @@ class TopicOverviewCard extends StatelessWidget {
                 Text(
                   subject,
                   style: AppTextStyle.regular20.apply(
-                    color: AppColors.chocolate,
+                    color: AppColors.chocolate.value,
                   ),
                 ),
                 Text(
                   'chapter $chapter',
                   style: AppTextStyle.regular20.apply(
-                    color: AppColors.chocolate,
+                    color: AppColors.chocolate.value,
                   ),
                 ),
                 SizedBox(height: 30.h),
                 Text(
                   'Total question: $totalQuestion',
                   style: AppTextStyle.regular14.apply(
-                    color: AppColors.chocolate,
+                    color: AppColors.chocolate.value,
                   ),
                 ),
                 Text(
                   'You are on: ${classNum}th',
                   style: AppTextStyle.regular14.apply(
-                    color: AppColors.chocolate,
+                    color: AppColors.chocolate.value,
                   ),
                 ),
                 SizedBox(height: 15.h),
@@ -94,7 +96,7 @@ class TopicOverviewCard extends StatelessWidget {
                 PracticeButton(
                   showText: showButtonText,
                   showMoreShadow: true,
-                  iconColor: AppColors.chocolate,
+                  iconColor: AppColors.chocolate.value,
                   onTap: () {
                     
                   },
@@ -104,6 +106,6 @@ class TopicOverviewCard extends StatelessWidget {
           ),
         ],
       ),
-    );
+    ));
   }
 }

@@ -46,7 +46,7 @@ class _SubjectSelectionState extends State<SubjectSelection> {
   Widget build(BuildContext context) {
     bool isReadyToStart = selectedSubjects.length >= 5;
 
-    return Scaffold(
+    return Obx(()=>Scaffold(
       body: AppBackground(
         showBgImage: 1,
         child: Center(
@@ -74,23 +74,23 @@ class _SubjectSelectionState extends State<SubjectSelection> {
                         prefix: Icon(
                           Icons.language,
                           color:
-                              isSelected
-                                  ? AppColors.lightPink
-                                  : AppColors.chocolateShadow,
+                          isSelected
+                              ? AppColors.lightPink
+                              : AppColors.chocolateShadow,
                         ),
                         isSelected: isSelected,
                         backgroundColor:
-                            isSelected
-                                ? AppColors.primaryColor
-                                : AppColors.chocolateShadow,
+                        isSelected
+                            ? AppColors.primaryColor.value
+                            : AppColors.chocolateShadow,
                         textColor:
-                            isSelected
-                                ? Colors.white
-                                : AppColors.chocolateShadow,
+                        isSelected
+                            ? Colors.white
+                            : AppColors.chocolateShadow,
                         shadowColor:
-                            isSelected
-                                ? AppColors.primaryShadow
-                                : AppColors.chocolateShadow,
+                        isSelected
+                            ? AppColors.primaryShadow.value
+                            : AppColors.chocolateShadow,
                         onTap: () => toggleSubject(subject),
                       );
                     },
@@ -100,26 +100,26 @@ class _SubjectSelectionState extends State<SubjectSelection> {
                   width: AppStyles.screenHeightPercentage(context, 0.25),
                   prefix: Image.asset(AssetPath.logInIcon, scale: 4),
                   onTap:
-                      isReadyToStart
-                          ? () {
-                            Get.to(() => PremiumScreen());
-                          }
-                          : null,
+                  isReadyToStart
+                      ? () {
+                    Get.to(() => PremiumScreen());
+                  }
+                      : null,
                   buttonText:
-                      isReadyToStart ? 'Get Started' : '4 More to Start',
+                  isReadyToStart ? 'Get Started' : '4 More to Start',
                   backgroundColor:
-                      isReadyToStart ? AppColors.primaryColor : AppColors.grey,
+                  isReadyToStart ? AppColors.primaryColor.value : AppColors.grey,
                   textColor: Colors.white,
                   shadowColor:
-                      isReadyToStart
-                          ? AppColors.primaryShadow
-                          : AppColors.greyShadow,
+                  isReadyToStart
+                      ? AppColors.primaryShadow.value
+                      : AppColors.greyShadow,
                 ),
               ],
             ),
           ),
         ),
       ),
-    );
+    ));
   }
 }

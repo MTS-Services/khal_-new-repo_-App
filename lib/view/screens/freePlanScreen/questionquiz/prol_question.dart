@@ -42,11 +42,11 @@ class _ProlQuestionState extends State<ProlQuestion> {
                     },
                     backgroundColor:
                         isSelected
-                            ? AppColors.primaryColor
+                            ? AppColors.primaryColor.value
                             : AppColors.primaryLightColor,
                     shadowColor:
                         isSelected
-                            ? AppColors.primaryShadow
+                            ? AppColors.primaryShadow.value
                             : AppColors.primaryLightColor,
                     buttonText: 'Questions',
                     textColor:
@@ -66,11 +66,11 @@ class _ProlQuestionState extends State<ProlQuestion> {
                     buttonText: 'Quiz',
                     backgroundColor:
                         !isSelected
-                            ? AppColors.primaryColor
+                            ? AppColors.primaryColor.value
                             : AppColors.primaryLightColor,
                     shadowColor:
                         !isSelected
-                            ? AppColors.primaryShadow
+                            ? AppColors.primaryShadow.value
                             : AppColors.primaryLightColor,
                     textColor:
                         !isSelected

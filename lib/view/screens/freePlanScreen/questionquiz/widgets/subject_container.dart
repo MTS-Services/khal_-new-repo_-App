@@ -23,7 +23,7 @@ class SubjectContainer extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8.r),
-        color: const Color(0xffFCC962),
+        color: AppColors.primaryShadow.value,
       ),
       child: Padding(
         padding: EdgeInsets.all(10.r),
@@ -38,7 +38,7 @@ class SubjectContainer extends StatelessWidget {
                 Image.asset(AssetPath.labelIcon, height: 32.h, width: 32.w),
                 PracticeButton(
                   showText: false,
-                  iconColor: AppColors.chocolate,
+                  iconColor: AppColors.chocolate.value,
                   onTap: () {},
                 ),
               ],
@@ -46,16 +46,16 @@ class SubjectContainer extends StatelessWidget {
             SizedBox(height: 11.h),
             Text(
               subject,
-              style: AppTextStyle.regular14.apply(color: AppColors.chocolate),
+              style: AppTextStyle.regular14.apply(color: AppColors.chocolate.value),
             ),
             Text(
               'chapter $chapter',
-              style: AppTextStyle.regular14.apply(color: AppColors.chocolate),
+              style: AppTextStyle.regular14.apply(color: AppColors.chocolate.value),
             ),
             SizedBox(height: 12.h),
             Text(
               'You are on: ${classNum}th',
-              style: AppTextStyle.regular12.apply(color: AppColors.chocolate),
+              style: AppTextStyle.regular12.apply(color: AppColors.chocolate.value),
             ),
             SizedBox(height: 15.h),
             Padding(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:zidney/utils/app_colors.dart';
 import '../../../../../utils/app_style.dart';
 
@@ -8,8 +9,8 @@ class CustomConditionalButton extends StatelessWidget {
   final Widget? child;
   final Widget? prefix;
   final Widget? suffix;
-  final Color backgroundColor;
-  final Color shadowColor;
+  final Color? backgroundColor;
+  final Color? shadowColor;
   final BorderRadius borderRadius;
   final Color textColor;
   final bool isSelected;
@@ -18,8 +19,8 @@ class CustomConditionalButton extends StatelessWidget {
     super.key,
     required this.onTap,
     this.child,
-    this.backgroundColor = AppColors.primaryColor,
-    this.shadowColor = AppColors.primaryShadow,
+    this.backgroundColor,
+    this.shadowColor,
     this.borderRadius = AppStyles.radiusM,
     required this.buttonText,
     this.prefix,
@@ -37,22 +38,22 @@ class CustomConditionalButton extends StatelessWidget {
         child: Container(
           width: double.infinity,
           decoration:
-              isSelected
-                  ? BoxDecoration(
-                    color: backgroundColor,
-                    borderRadius: borderRadius,
-                    boxShadow: [
-                      BoxShadow(
-                        color: shadowColor,
-                        offset: const Offset(0, 12),
-                      ),
-                    ],
-                  )
-                  : BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: borderRadius,
-                    border: Border.all(color: Colors.grey.shade400),
-                  ),
+          isSelected
+              ? BoxDecoration(
+            color: backgroundColor??AppColors.primaryColor.value,
+            borderRadius: borderRadius,
+            boxShadow: [
+              BoxShadow(
+                color: shadowColor ?? AppColors.primaryShadow.value,
+                offset: const Offset(0, 12),
+              ),
+            ],
+          )
+              : BoxDecoration(
+            color: Colors.white,
+            borderRadius: borderRadius,
+            border: Border.all(color: Colors.grey.shade400),
+          ),
           child: Padding(
             padding: AppStyles.paddingM,
             child: Row(

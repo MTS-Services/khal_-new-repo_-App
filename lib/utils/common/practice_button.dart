@@ -9,7 +9,7 @@ class PracticeButton extends StatelessWidget {
     this.hasRadius = true,
     this.showMoreShadow = false,
     this.buttonText = 'Start Practice',
-    this.textColor = AppColors.chocolate,
+    this.textColor,
     this.buttonColor = AppColors.whiteColor,
     this.shadowColor = const Color(0xffF0E4DE),
     this.iconColor = AppColors.blackColor,
@@ -19,7 +19,7 @@ class PracticeButton extends StatelessWidget {
   final bool hasRadius;
   final bool showMoreShadow;
   final String buttonText;
-  final Color textColor;
+  final Color? textColor;
   final Color buttonColor;
   final Color shadowColor;
   final Color iconColor;
@@ -46,7 +46,7 @@ class PracticeButton extends StatelessWidget {
             if (showText)
               Text(
                 buttonText,
-                style: AppTextStyle.bold14.apply(color: textColor),
+                style: AppTextStyle.bold14.apply(color: textColor??AppColors.chocolate.value),
               ),
             Icon(Icons.double_arrow_sharp, color: iconColor),
           ],

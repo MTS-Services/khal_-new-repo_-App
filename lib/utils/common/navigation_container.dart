@@ -41,8 +41,8 @@ class NavigationContainer extends StatelessWidget {
                   scale: 3,
                   color:
                       navController.selectedIndex.value == 0
-                          ? AppColors.primaryColor
-                          : AppColors.chocolate,
+                          ? AppColors.primaryColor.value
+                          : AppColors.chocolate.value,
                 ),
                 label: '',
               ),
@@ -52,8 +52,8 @@ class NavigationContainer extends StatelessWidget {
                   scale: 3,
                   color:
                       navController.selectedIndex.value == 1
-                          ? AppColors.primaryColor
-                          : AppColors.chocolate,
+                          ? AppColors.primaryColor.value
+                          : AppColors.chocolate.value,
                 ),
                 label: '',
               ),
@@ -63,8 +63,8 @@ class NavigationContainer extends StatelessWidget {
                   scale: 3,
                   color:
                       navController.selectedIndex.value == 2
-                          ? AppColors.primaryColor
-                          : AppColors.chocolate,
+                          ? AppColors.primaryColor.value
+                          : AppColors.chocolate.value,
                 ),
                 label: '',
               ),
@@ -74,8 +74,8 @@ class NavigationContainer extends StatelessWidget {
                   scale: 16,
                   color:
                       navController.selectedIndex.value == 3
-                          ? AppColors.primaryColor
-                          : AppColors.chocolate,
+                          ? AppColors.primaryColor.value
+                          : AppColors.chocolate.value,
                 ),
                 label: '',
               ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import 'package:zidney/utils/app_colors.dart';
 
@@ -17,14 +18,14 @@ class CustomContainer extends StatelessWidget {
     this.height,
     this.borderRadius,
     this.width,
-    this.shadowColor = AppColors.primaryColor,
+    this.shadowColor,
     this.backgroundColor = Colors.white,
     this.child,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return Obx(()=>Container(
       height: height,
 
       width: width,
@@ -33,17 +34,17 @@ class CustomContainer extends StatelessWidget {
         color: backgroundColor,
         borderRadius: borderRadius ?? AppStyles.radiusS,
         border: Border.all(
-          color: shadowColor ?? AppColors.primaryColor,
+          color: shadowColor ?? AppColors.primaryColor.value,
           width: 2,
         ),
         boxShadow: [
           BoxShadow(
-            color: shadowColor ?? AppColors.primaryColor,
+            color: shadowColor ?? AppColors.primaryColor.value,
             offset: const Offset(0, 12),
           ),
         ],
       ),
       child: child,
-    );
+    ));
   }
 }

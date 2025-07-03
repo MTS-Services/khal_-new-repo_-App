@@ -30,7 +30,7 @@ class MenuScreen extends StatelessWidget {
               Text(
                 'Sophie',
                 style: TextStyle(
-                  color: AppColors.chocolate,
+                  color: AppColors.chocolate.value,
                   fontWeight: AppStyles.weightMedium,
                   fontSize: 24,
                 ),
@@ -54,7 +54,7 @@ class MenuScreen extends StatelessWidget {
                     style: TextStyle(
                       fontSize: AppStyles.fontM,
                       fontWeight: AppStyles.weightRegular,
-                      color: AppColors.chocolate,
+                      color: AppColors.chocolate.value,
                     ),
                   ),
                 ],
@@ -79,7 +79,7 @@ class MenuScreen extends StatelessWidget {
                     style: TextStyle(
                       fontSize: AppStyles.fontM,
                       fontWeight: AppStyles.weightRegular,
-                      color: AppColors.chocolate,
+                      color: AppColors.chocolate.value,
                     ),
                   ),
                 ],
@@ -104,7 +104,7 @@ class MenuScreen extends StatelessWidget {
                     style: TextStyle(
                       fontSize: AppStyles.fontM,
                       fontWeight: AppStyles.weightRegular,
-                      color: AppColors.chocolate,
+                      color: AppColors.chocolate.value,
                     ),
                   ),
                 ],

@@ -7,7 +7,7 @@ ThemeData themData() {
     fontFamily: 'Futura',
     textButtonTheme: TextButtonThemeData(
       style: TextButton.styleFrom(
-        foregroundColor: AppColors.chocolate,
+        foregroundColor: AppColors.chocolate.value,
         textStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
       ),
     ),
@@ -16,7 +16,7 @@ ThemeData themData() {
       trackColor: WidgetStateProperty.all(Colors.amber.withOpacity(0.2)),
       trackBorderColor: WidgetStateProperty.all(Colors.transparent),
 
-      thickness: WidgetStateProperty.all(6), 
+      thickness: WidgetStateProperty.all(6),
       trackVisibility: WidgetStateProperty.all(true), // show track
       radius: Radius.circular(10),
       thumbVisibility: WidgetStateProperty.all(true),
@@ -29,33 +29,33 @@ ThemeData themData() {
       backgroundColor: Colors.white,
     ),
     scaffoldBackgroundColor: Colors.white,
-    primaryColor: AppColors.primaryColor,
+    primaryColor: AppColors.primaryColor.value,
     inputDecorationTheme: InputDecorationTheme(
       filled: true,
       fillColor: Colors.white,
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(8),
-        borderSide: const BorderSide(color: AppColors.primaryColor),
+        borderSide: BorderSide(color: AppColors.primaryColor.value),
       ),
       enabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(8),
-        borderSide: const BorderSide(color: AppColors.primaryColor),
+        borderSide: BorderSide(color: AppColors.primaryColor.value),
       ),
       focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(8),
-        borderSide: const BorderSide(color: AppColors.primaryColor, width: 2),
+        borderSide: BorderSide(color: AppColors.primaryColor.value, width: 2),
       ),
       errorBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(8),
-        borderSide: const BorderSide(color: AppColors.primaryColor),
+        borderSide: BorderSide(color: AppColors.primaryColor.value),
       ),
       focusedErrorBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(8),
-        borderSide: const BorderSide(color: AppColors.primaryColor, width: 2),
+        borderSide: BorderSide(color: AppColors.primaryColor.value, width: 2),
       ),
       disabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(8),
-        borderSide: const BorderSide(color: AppColors.primaryColor),
+        borderSide: BorderSide(color: AppColors.primaryColor.value),
       ),
     ),
   );

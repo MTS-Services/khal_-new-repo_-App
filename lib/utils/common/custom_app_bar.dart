@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:zidney/utils/app_colors.dart';
 import 'package:zidney/utils/asset_path.dart';
 import 'package:zidney/utils/styles/app_text_styles.dart';
+import 'package:zidney/view/screens/freePlanScreen/menusubpages/plans.dart';
 import 'package:zidney/viewmodels/controller/bottom_nav_controller.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -24,24 +25,24 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 10),
-      child: AppBar(
-        leading: IconButton(
-          onPressed: () {
-            final navController = Get.find<BottomNavController>();
-            if (navController.customChild.value == null) {
-              Get.back();
-            } else {
-              navController.customChild.value = null;
-            }
-          },
-          icon: Icon(Icons.arrow_back),
-        ),
-        automaticallyImplyLeading: false,
-        title:
-            showTitle
-                ? Transform.translate(
+    return Obx(
+      () => Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 10),
+        child: AppBar(
+          leading: IconButton(
+            onPressed: () {
+              final navController = Get.find<BottomNavController>();
+              if (navController.customChild.value == null) {
+                Get.back();
+              } else {
+                navController.customChild.value = null;
+              }
+            },
+            icon: Icon(Icons.arrow_back),
+          ),
+          automaticallyImplyLeading: false,
+          title: showTitle
+              ? Transform.translate(
                   offset: Offset(-20, 0),
                   child: Row(
                     children: [
@@ -52,7 +53,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                           borderRadius: BorderRadius.circular(40),
                           color: Colors.white,
                           border: Border.all(
-                            color: AppColors.primaryColor,
+                            color: AppColors.primaryColor.value,
                             width: 2,
                           ),
                         ),
@@ -80,33 +81,35 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                     ],
                   ),
                 )
-                : SizedBox.fromSize(),
-        actions:
-            showAction
-                ? [
+              : SizedBox.fromSize(),
+          actions: showAction
+              ? [
                   showActionIcon
                       ? Image.asset('assets/images/bookmark_icon.png', scale: 3)
                       : InkWell(
-                        onTap: () {},
-                        child: Row(
-                          spacing: 10,
-                          children: [
-                            Text(
-                              'Premium',
-                              style: AppTextStyle.bold14.apply(
-                                color: AppColors.secondaryColor,
+                          onTap: () {
+                            Get.to(() => Plans());
+                          },
+                          child: Row(
+                            spacing: 10,
+                            children: [
+                              Text(
+                                'Premium',
+                                style: AppTextStyle.bold14.apply(
+                                  color: AppColors.secondaryColor.value,
+                                ),
                               ),
-                            ),
-                            SvgPicture.asset(
-                              AssetPath.vector,
-                              height: 23,
-                              width: 23,
-                            ),
-                          ],
+                              SvgPicture.asset(
+                                AssetPath.vector,
+                                height: 23,
+                                width: 23,
+                              ),
+                            ],
+                          ),
                         ),
-                      ),
                 ]
-                : [],
+              : [],
+        ),
       ),
     );
   }

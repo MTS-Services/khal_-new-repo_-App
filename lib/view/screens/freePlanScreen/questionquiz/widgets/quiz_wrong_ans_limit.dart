@@ -71,8 +71,8 @@ class QuizWrongAnsLimit extends StatelessWidget {
               SizedBox(width: 20),
               Expanded(
                 child: CustomButton(
-                  backgroundColor: AppColors.secondaryColor,
-                  shadowColor: AppColors.secondaryShadow,
+                  backgroundColor: AppColors.secondaryColor.value,
+                  shadowColor: AppColors.secondaryShadow.value,
                   prefix: Image.asset(
                     AssetPath.logInIcon,
                     width: 24,
