@@ -96,7 +96,7 @@ class TopicOverviewCard extends StatelessWidget {
                 PracticeButton(
                   showText: showButtonText,
                   showMoreShadow: true,
-                  iconColor: AppColors.chocolate.value,
+                  iconColor: Color(0xFF4D3D36),
                   onTap: () {
                     
                   },

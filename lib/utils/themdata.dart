@@ -12,10 +12,8 @@ ThemeData themData() {
       ),
     ),
     scrollbarTheme: ScrollbarThemeData(
-      thumbColor: WidgetStateProperty.all(Colors.amber),
-      trackColor: WidgetStateProperty.all(Colors.amber.withOpacity(0.2)),
+      trackColor: WidgetStateProperty.all(Color(0xff713694).withValues(alpha: 0.2)),
       trackBorderColor: WidgetStateProperty.all(Colors.transparent),
-
       thickness: WidgetStateProperty.all(6),
       trackVisibility: WidgetStateProperty.all(true), // show track
       radius: Radius.circular(10),

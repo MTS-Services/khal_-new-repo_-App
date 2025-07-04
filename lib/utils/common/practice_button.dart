@@ -46,7 +46,7 @@ class PracticeButton extends StatelessWidget {
             if (showText)
               Text(
                 buttonText,
-                style: AppTextStyle.bold14.apply(color: textColor??AppColors.chocolate.value),
+                style: AppTextStyle.bold14.apply(color: textColor??Color(0xFF4D3D36)),
               ),
             Icon(Icons.double_arrow_sharp, color: iconColor),
           ],

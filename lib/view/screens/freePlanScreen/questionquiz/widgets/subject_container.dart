@@ -38,7 +38,7 @@ class SubjectContainer extends StatelessWidget {
                 Image.asset(AssetPath.labelIcon, height: 32.h, width: 32.w),
                 PracticeButton(
                   showText: false,
-                  iconColor: AppColors.chocolate.value,
+                  iconColor: Color(0xFF4D3D36),
                   onTap: () {},
                 ),
               ],
