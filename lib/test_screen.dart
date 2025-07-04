@@ -25,6 +25,9 @@ class TestScreen extends StatelessWidget {
             ElevatedButton(onPressed: (){
               Get.to(()=>Plans());
             }, child: Text("Next")),
+            ElevatedButton(onPressed: (){
+              Get.to(()=>Plans());
+            }, child: Text("Next")),
           ],
         ),
       ),
