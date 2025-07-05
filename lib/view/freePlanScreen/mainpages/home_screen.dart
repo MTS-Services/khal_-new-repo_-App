@@ -14,10 +14,13 @@ import 'package:zidney/view/screens/freePlanScreen/questionquiz/widgets/subject_
 import 'package:zidney/view/screens/freePlanScreen/questionquiz/widgets/topic_overview_card.dart';
 import 'package:zidney/viewmodels/controller/bottom_nav_controller.dart';
 
+import '../../../controller/course/course_controller.dart';
+import '../../../models/course/course_model.dart';
 import '../../screens/freePlanScreen/questionquiz/widgets/all_subject_screen.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+   HomeScreen({super.key});
+  final CourseController _courseController = Get.put(CourseController());
 
   @override
   Widget build(BuildContext context) {
@@ -29,94 +32,108 @@ class HomeScreen extends StatelessWidget {
         classTitle: 'Class 10',
       ),
       body: SingleChildScrollView(
-        child: SafeArea(
-          child: Padding(
-            padding:
-                AppStyles
-                    .paddingSymmetricXL, // You can internally apply .w/.h in AppStyles too
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                InkWell(
-                  onTap: () => Get.to(() => PremiumScreen()),
-                  child: const CustomPremiumCotainer(),
-                ),
-                SizedBox(height: 20.h),
-                const CustomLabel(
-                  text: 'Last Practiced Chapter',
-                  showImage: false,
-                ),
-                SizedBox(height: 10),
-                Row(
-                  spacing: 10,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Expanded(
-                      flex: 3,
-                      child: TopicOverviewCard(
+        child: Padding(
+          padding:
+              AppStyles
+                  .paddingSymmetricXL, // You can internally apply .w/.h in AppStyles too
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              InkWell(
+                onTap: () => Get.to(() => PremiumScreen()),
+                child: const CustomPremiumCotainer(),
+              ),
+              SizedBox(height: 20.h),
+              const CustomLabel(
+                text: 'Last Practiced Chapter',
+                showImage: false,
+              ),
+              SizedBox(height: 10),
+              Row(
+                spacing: 10,
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Expanded(
+                    flex: 3,
+                    child: TopicOverviewCard(
 
-                        chapter: '1',
-                        classNum: '10',
-                        showButtonText: true,
-                        subject: 'Advance Math',
-                        totalQuestion: 10,
-                        showImage: true,
-                      ),
+                      chapter: '1',
+                      classNum: '10',
+                      showButtonText: true,
+                      subject: 'Advance Math',
+                      totalQuestion: 10,
+                      showImage: true,
                     ),
-                    Expanded(
-                      flex: 2,
-                      child: Column(
-                        spacing: 10,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisSize: MainAxisSize.min,
-                        children: const [
-                          SubjectContainer(
-                            subject: 'Life Science',
-                            chapter: '1',
-                            classNum: '10',
-                          ),
-                          SubjectContainer(
-                            subject: 'Physical Science',
-                            chapter: '1',
-                            classNum: '10',
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-                SizedBox(height: 35.h),
-                Text(
-                  'Practicing Courses',
-                  style: AppTextStyle.bold16.apply(fontSizeFactor: 1.2),
-                ),
-                SizedBox(height: 15.h),
-
-                for (int i = 0; i < 4; i++)
-                  QuestionContainer(
-                    title: 'Life Science',
-                    subTitle: 'Chapter : 10th',
-                    showTrailIcon: false,
-                    showIcon: true,
-                    imageIcon: AssetPath.accessIcon,
-                    percentage: 0.5,
-                    onTap: () {
-                      controller.openWithChild(TopicScreen());
-                    },
                   ),
-                SizedBox(height: 30.h),
-                Text(
-                  'All Subjects',
-                  style: AppTextStyle.bold16.apply(fontSizeFactor: 1.2),
+                  Expanded(
+                    flex: 2,
+                    child: Column(
+                      spacing: 10,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisSize: MainAxisSize.min,
+                      children: const [
+                        SubjectContainer(
+                          subject: 'Life Science',
+                          chapter: '1',
+                          classNum: '10',
+                        ),
+                        SubjectContainer(
+                          subject: 'Physical Science',
+                          chapter: '1',
+                          classNum: '10',
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: 35.h),
+              Text(
+                'Practicing Topics',
+                style: AppTextStyle.bold16.apply(fontSizeFactor: 1.2),
+              ),
+              SizedBox(height: 15.h),
+
+              for (int i = 0; i < 4; i++)
+                QuestionContainer(
+                  title: 'Life Science',
+                  subTitle: 'Chapter : 10th',
+                  showTrailIcon: false,
+                  showIcon: true,
+                  imageIcon: AssetPath.accessIcon,
+                  percentage: 0.5,
+                  onTap: () {
+                    controller.openWithChild(TopicScreen());
+                  },
                 ),
-                SizedBox(height: 20.h),
-                for (int i = 0; i < 4; i++)
-                  AllSubjectScreen(subName: 'Math', image: AssetPath.labelIcon),
-              ],
-            ),
+
+
+
+              SizedBox(height: 30.h),
+              Text(
+                'All Subjects',
+                style: AppTextStyle.bold16.apply(fontSizeFactor: 1.2),
+              ),
+              SizedBox(height: 20.h),
+              // for (int i = 0; i < 4; i++)
+              //   AllSubjectScreen(subName: 'Math', image: AssetPath.labelIcon),
+
+              SizedBox(
+                height: 300,
+                child: ListView.builder(
+                  itemCount: _courseController.courses.length,
+                  itemBuilder: (context, index) {
+                    Course course =_courseController.courses[index];
+                    return  AllSubjectScreen(subName: course.name, image: AssetPath.labelIcon);
+                  },),
+              ),
+
+
+
+            ],
           ),
         ),
       ),
