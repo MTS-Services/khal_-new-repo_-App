@@ -11,14 +11,6 @@ ThemeData themData() {
         textStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
       ),
     ),
-    scrollbarTheme: ScrollbarThemeData(
-      trackColor: WidgetStateProperty.all(Color(0xff713694).withValues(alpha: 0.2)),
-      trackBorderColor: WidgetStateProperty.all(Colors.transparent),
-      thickness: WidgetStateProperty.all(6),
-      trackVisibility: WidgetStateProperty.all(true), // show track
-      radius: Radius.circular(10),
-      thumbVisibility: WidgetStateProperty.all(true),
-    ),
 
     appBarTheme: AppBarTheme(
       elevation: 0,

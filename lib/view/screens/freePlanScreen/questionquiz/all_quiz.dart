@@ -28,26 +28,29 @@ class _AllQuizState extends State<AllQuiz> {
 
           SizedBox(height: AppStyles.screenHeightPercentage(context, 0.015)),
           Expanded(
-            child: Scrollbar(
-              thumbVisibility: true,
-              thickness: 10,
-              radius: Radius.circular(10),
-              trackVisibility: true,
-              child: Padding(
-                padding: const EdgeInsets.only(right: 25),
-                child: ListView.builder(
-                  itemCount: 10,
-                  itemBuilder: (context, index) {
-                    return QuestionContainer(
-                      title: 'Quiz ${index + 1}',
-                      subTitle: 'attempts taken 3',
-                      trailIcon: AssetPath.circleCorrectImage,
-                      percentage: 0.8,
-                      onTap: () {
-                        Get.to(() => Quiz());
-                      },
-                    );
-                  },
+            child: Obx(
+              () => RawScrollbar(
+                thumbVisibility: true,
+                thickness: 10,
+                thumbColor: AppColors.primaryColor.value,
+                radius: Radius.circular(10),
+                trackVisibility: true,
+                child: Padding(
+                  padding: const EdgeInsets.only(right: 25),
+                  child: ListView.builder(
+                    itemCount: 10,
+                    itemBuilder: (context, index) {
+                      return QuestionContainer(
+                        title: 'Quiz ${index + 1}',
+                        subTitle: 'attempts taken 3',
+                        trailIcon: AssetPath.circleCorrectImage,
+                        percentage: 0.8,
+                        onTap: () {
+                          Get.to(() => Quiz());
+                        },
+                      );
+                    },
+                  ),
                 ),
               ),
             ),

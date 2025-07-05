@@ -7,13 +7,4 @@ class PaymentController extends GetxController{
     isPaymentSuccess.value=isPaymentStatus;
     update();
   }
-
-  @override
-  void onInit() {
-    // TODO: implement onInit
-    isPaymentSuccess;
-    print(isPaymentSuccess);
-    super.onInit();
-  }
-
 }

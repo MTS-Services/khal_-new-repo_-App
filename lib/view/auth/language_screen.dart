@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:zidney/utils/app_style.dart';
+import 'package:zidney/view/auth/auth_api_services/auth_api_services.dart';
 import 'package:zidney/view/auth/login_screen1.dart';
 import 'package:zidney/view/screens/freePlanScreen/questionquiz/widgets/app_background.dart';
 import '../../utils/asset_path.dart';
@@ -77,6 +78,12 @@ class _LanguageScreenState extends State<LanguageScreen> {
             ),
           ),
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: (){
+          AuthApiServices.logout("admin@dev.com", "admin@dev.com");
+        },
+        backgroundColor: Colors.black,child: Icon(Icons.logout,color: Colors.white,),
       ),
     );
   }

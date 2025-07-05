@@ -20,18 +20,17 @@ class _AllQuestionsState extends State<AllQuestions> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: AppColors.whiteColor,
-
-      body: Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          SizedBox(height: AppStyles.heightXS),
-          Expanded(
-            child: Scrollbar(
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        SizedBox(height: AppStyles.heightXS),
+        Expanded(
+          child: Obx(
+            () => RawScrollbar(
               thumbVisibility: true,
               thickness: 10,
+              thumbColor: AppColors.primaryColor.value,
               radius: Radius.circular(10),
               trackVisibility: true,
               child: Padding(
@@ -56,8 +55,8 @@ class _AllQuestionsState extends State<AllQuestions> {
               ),
             ),
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

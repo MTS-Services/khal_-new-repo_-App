@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:zidney/test_screen.dart';
-import 'package:zidney/utils/themdata.dart';
+import 'package:zidney/utils/theme_data.dart';
 import 'package:zidney/view/auth/language_screen.dart';
 import 'package:zidney/view/freePlanScreen/mainpages/home_screen.dart';
 import 'package:zidney/view/freePlanScreen/mainpages/main_bottom_nav_screen.dart';

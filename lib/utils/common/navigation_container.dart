@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:zidney/utils/asset_path.dart';
 
 import '../../viewmodels/controller/bottom_nav_controller.dart';
+import '../../viewmodels/controller/payment_controller.dart';
 import '../app_colors.dart';
 
 class NavigationContainer extends StatelessWidget {
@@ -14,8 +15,8 @@ class NavigationContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Obx(
       () => Container(
-        decoration: const BoxDecoration(
-          color: AppColors.navigationColor,
+        decoration: BoxDecoration(
+          color: PaymentController.isPaymentSuccess.value?Color(0xfff1ebf4):AppColors.navigationColor,
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(20),
             topRight: Radius.circular(20),

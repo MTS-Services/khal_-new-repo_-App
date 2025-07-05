@@ -25,91 +25,89 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Obx(
-      () => Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 10),
-        child: AppBar(
-          leading: IconButton(
-            onPressed: () {
-              final navController = Get.find<BottomNavController>();
-              if (navController.customChild.value == null) {
-                Get.back();
-              } else {
-                navController.customChild.value = null;
-              }
-            },
-            icon: Icon(Icons.arrow_back),
-          ),
-          automaticallyImplyLeading: false,
-          title: showTitle
-              ? Transform.translate(
-                  offset: Offset(-20, 0),
-                  child: Row(
-                    children: [
-                      Container(
-                        height: 40,
-                        width: 40,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(40),
-                          color: Colors.white,
-                          border: Border.all(
-                            color: AppColors.primaryColor.value,
-                            width: 2,
-                          ),
-                        ),
-                      ),
-                      const SizedBox(width: 12),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            title,
-                            style: AppTextStyle.regular14.apply(
-                              fontSizeFactor: 1.5,
-                            ),
-                          ),
-                          Text(
-                            classTitle,
-                            style: TextStyle(
-                              fontSize: 12,
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                )
-              : SizedBox.fromSize(),
-          actions: showAction
-              ? [
-                  showActionIcon
-                      ? Image.asset('assets/images/bookmark_icon.png', scale: 3)
-                      : InkWell(
-                          onTap: () {
-                            Get.to(() => Plans());
-                          },
-                          child: Row(
-                            spacing: 10,
-                            children: [
-                              Text(
-                                'Premium',
-                                style: AppTextStyle.bold14.apply(
-                                  color: AppColors.secondaryColor.value,
-                                ),
-                              ),
-                              SvgPicture.asset(
-                                AssetPath.vector,
-                                height: 23,
-                                width: 23,
-                              ),
-                            ],
-                          ),
-                        ),
-                ]
-              : [],
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 10),
+      child: AppBar(
+        leading: IconButton(
+          onPressed: () {
+            final navController = Get.find<BottomNavController>();
+            if (navController.customChild.value == null) {
+              Get.back();
+            } else {
+              navController.customChild.value = null;
+            }
+          },
+          icon: Icon(Icons.arrow_back),
         ),
+        automaticallyImplyLeading: false,
+        title: showTitle
+            ? Transform.translate(
+          offset: Offset(-20, 0),
+          child: Row(
+            children: [
+              Container(
+                height: 40,
+                width: 40,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(40),
+                  color: Colors.white,
+                  border: Border.all(
+                    color: AppColors.primaryColor.value,
+                    width: 2,
+                  ),
+                ),
+              ),
+              const SizedBox(width: 12),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    title,
+                    style: AppTextStyle.regular14.apply(
+                      fontSizeFactor: 1.5,
+                    ),
+                  ),
+                  Text(
+                    classTitle,
+                    style: TextStyle(
+                      fontSize: 12,
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        )
+            : SizedBox.fromSize(),
+        actions: showAction
+            ? [
+          showActionIcon
+              ? Image.asset('assets/images/bookmark_icon.png', scale: 3)
+              : InkWell(
+            onTap: () {
+              Get.to(() => Plans());
+            },
+            child: Row(
+              spacing: 10,
+              children: [
+                Text(
+                  'Premium',
+                  style: AppTextStyle.bold14.apply(
+                    color: AppColors.secondaryColor.value,
+                  ),
+                ),
+                SvgPicture.asset(
+                  AssetPath.vector,
+                  height: 23,
+                  width: 23,
+                ),
+              ],
+            ),
+          ),
+        ]
+            : [],
       ),
     );
   }

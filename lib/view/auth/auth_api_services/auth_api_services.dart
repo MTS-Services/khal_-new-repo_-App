@@ -68,6 +68,59 @@ class AuthApiServices{
 
 
   //logout
+  static Future<void> logout(String email, String password) async {
+    final url = Uri.parse('$baseUrl/auth/logout');
+
+
+    final response = await http.post(
+      url,
+      headers: {
+        'Content-Type': 'application/json',
+
+      },
+      // body: jsonEncode({
+      //   'email': email,
+      //   'password': password,
+      // }),
+    );
+
+    if (response.statusCode == 200) {
+      final data = jsonDecode(response.body);
+
+      // Save token or navigate to another screen
+      String? token= data["token"];
+
+      if(token!=null){
+        SharedPreferenceServices.userInformation(token: token);
+        Get.to(() => MainBottomNavScreen());
+
+      }else{
+        Get.snackbar(
+          "Already Logged In",
+          "You have already logged in from another device.",
+          snackPosition: SnackPosition.BOTTOM,
+          backgroundColor: Colors.redAccent.withValues(alpha: 0.9),
+          colorText: Colors.white,
+          icon: Icon(Icons.warning_amber_rounded, color: Colors.white),
+          margin: EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+          borderRadius: 12,
+          duration: Duration(seconds: 4),
+          animationDuration: Duration(milliseconds: 300),
+          isDismissible: true,
+          forwardAnimationCurve: Curves.easeOutBack,
+        );
+      }
+
+
+    } else {
+
+      print('Login failed: ${response.statusCode}');
+      print('Response body: ${response.body}');
+    }
+  }
+
+
+  //registration
 
   static Future<void> registration({required String email,required String password,required String phoneNumber}) async {
     final url = Uri.parse('$baseUrl/auth/register');
