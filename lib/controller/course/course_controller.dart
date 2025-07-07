@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 
-import '../../api_services/course_api_service.dart';
+import '../../api_services/course_api_services/course_api_service.dart';
 import '../../models/course/course_model.dart';
 
 

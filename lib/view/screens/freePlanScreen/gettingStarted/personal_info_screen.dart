@@ -5,6 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
+import 'package:zidney/controller/user/user_controller.dart';
 import 'package:zidney/utils/app_style.dart';
 import 'package:zidney/view/screens/freePlanScreen/gettingStarted/subject_selection_screen.dart';
 import 'package:zidney/view/screens/freePlanScreen/questionquiz/widgets/app_background.dart';
@@ -75,6 +76,8 @@ class _PersonalInfoState extends State<PersonalInfo> {
       });
     }
   }
+
+  final userController=Get.put(UserController());
 
   @override
   Widget build(BuildContext context) {
@@ -149,14 +152,17 @@ class _PersonalInfoState extends State<PersonalInfo> {
               SizedBox(
                 height: AppStyles.screenHeightPercentage(context, 0.025),
               ),
-              CustomTextFormField(
+            Obx((){
+              print("obx email: ${userController.userData?.email}");
+              return CustomTextFormField(
                 controller: userNameController,
-                labelText: 'User Name',
+                labelText: userController.userData?.email,
                 hintText: '@example',
-              ),
+              );
+            }),
               CustomTextFormField(
                 controller: fullNameController,
-                labelText: 'Full Name',
+                labelText: userController.userData?.username,
                 hintText: '@example',
               ),
               GestureDetector(
@@ -194,7 +200,7 @@ class _PersonalInfoState extends State<PersonalInfo> {
                   Expanded(
                     child: CustomTextFormField(
                       controller: countryController,
-                      labelText: 'Country Name',
+                      labelText: userController.userData?.username,
                       hintText: 'example',
                     ),
                   ),
@@ -210,7 +216,7 @@ class _PersonalInfoState extends State<PersonalInfo> {
               ),
               CustomTextFormField(
                 controller: schoolController,
-                labelText: 'School Name',
+                labelText: userController.userData?.username,
                 hintText: 'example',
               ),
 

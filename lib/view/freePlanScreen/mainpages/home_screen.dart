@@ -13,13 +13,12 @@ import 'package:zidney/view/screens/freePlanScreen/questionquiz/widgets/custom_p
 import 'package:zidney/view/screens/freePlanScreen/questionquiz/widgets/subject_container.dart';
 import 'package:zidney/view/screens/freePlanScreen/questionquiz/widgets/topic_overview_card.dart';
 import 'package:zidney/viewmodels/controller/bottom_nav_controller.dart';
-
 import '../../../controller/course/course_controller.dart';
 import '../../../models/course/course_model.dart';
 import '../../screens/freePlanScreen/questionquiz/widgets/all_subject_screen.dart';
 
 class HomeScreen extends StatelessWidget {
-   HomeScreen({super.key});
+  HomeScreen({super.key});
   final CourseController _courseController = Get.put(CourseController());
 
   @override
@@ -33,9 +32,8 @@ class HomeScreen extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding:
-              AppStyles
-                  .paddingSymmetricXL, // You can internally apply .w/.h in AppStyles too
+          padding: AppStyles
+              .paddingSymmetricXL, // You can internally apply .w/.h in AppStyles too
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
@@ -59,7 +57,6 @@ class HomeScreen extends StatelessWidget {
                   Expanded(
                     flex: 3,
                     child: TopicOverviewCard(
-
                       chapter: '1',
                       classNum: '10',
                       showButtonText: true,
@@ -110,33 +107,32 @@ class HomeScreen extends StatelessWidget {
                   },
                 ),
 
-
-
               SizedBox(height: 30.h),
               Text(
                 'All Subjects',
                 style: AppTextStyle.bold16.apply(fontSizeFactor: 1.2),
               ),
               SizedBox(height: 20.h),
+
               // for (int i = 0; i < 4; i++)
               //   AllSubjectScreen(subName: 'Math', image: AssetPath.labelIcon),
-
               SizedBox(
                 height: 300,
                 child: ListView.builder(
                   itemCount: _courseController.courses.length,
                   itemBuilder: (context, index) {
-                    Course course =_courseController.courses[index];
-                    return  AllSubjectScreen(subName: course.name, image: AssetPath.labelIcon);
-                  },),
+                    Course course = _courseController.courses[index];
+                    return AllSubjectScreen(
+                      subName: course.name,
+                      image: AssetPath.labelIcon,
+                    );
+                  },
+                ),
               ),
-
-
-
             ],
           ),
         ),
-      ),
+      ),   
     );
   }
 }
