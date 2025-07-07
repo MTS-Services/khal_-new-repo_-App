@@ -7,11 +7,7 @@ class UserController extends GetxController {
   final errorMessage = ''.obs;
   final userResponse = Rxn<UserResponse>(); // Reactive nullable UserResponse
 
-  @override
-  void onInit() {
-    fetchUsersData();
-    super.onInit();
-  }
+
 
   Future<void> fetchUsersData() async {
     try {

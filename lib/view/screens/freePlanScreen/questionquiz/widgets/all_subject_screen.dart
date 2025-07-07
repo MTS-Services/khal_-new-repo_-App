@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:zidney/utils/app_colors.dart';
 
 import '../../../../../utils/app_style.dart';
+import '../../../../../utils/asset_path.dart';
 
 class AllSubjectScreen extends StatelessWidget {
   const AllSubjectScreen({
@@ -29,7 +30,12 @@ class AllSubjectScreen extends StatelessWidget {
       child: Row(
         children: [
           SizedBox(width: 16),
-          Image.asset(image, height: 30, width: 30),
+          Image.network(
+            image,
+            width: 25,
+            height: 25,
+            errorBuilder: (context, error, stackTrace) => Image.asset(AssetPath.labelIcon,width: 25,height: 25,),
+          ),
           SizedBox(width: 16),
           Text(
             subName,

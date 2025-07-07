@@ -4,6 +4,7 @@ import 'package:zidney/utils/app_colors.dart';
 import 'package:zidney/utils/asset_path.dart';
 import 'package:zidney/utils/common/question_container.dart';
 import 'package:zidney/view/screens/freePlanScreen/questionquiz/quiz.dart';
+import '../../../../controller/quiz/quiz_controller.dart';
 import '../../../../utils/app_style.dart';
 
 class AllQuiz extends StatefulWidget {
@@ -15,6 +16,8 @@ class AllQuiz extends StatefulWidget {
 
 class _AllQuizState extends State<AllQuiz> {
   bool isSelected = false;
+
+  final _quizController=Get.put(QuizController());
 
   @override
   Widget build(BuildContext context) {
@@ -38,16 +41,28 @@ class _AllQuizState extends State<AllQuiz> {
                 child: Padding(
                   padding: const EdgeInsets.only(right: 25),
                   child: ListView.builder(
-                    itemCount: 10,
+                    shrinkWrap: true,
+                    physics: NeverScrollableScrollPhysics(),
+                    itemCount: _quizController.quizzes.length,//10
                     itemBuilder: (context, index) {
-                      return QuestionContainer(
-                        title: 'Quiz ${index + 1}',
-                        subTitle: 'attempts taken 3',
-                        trailIcon: AssetPath.circleCorrectImage,
-                        percentage: 0.8,
-                        onTap: () {
-                          Get.to(() => Quiz());
-                        },
+                      final quiz=_quizController.quizzes[index];
+                      return ListView.builder(
+                        shrinkWrap: true,
+                        physics: NeverScrollableScrollPhysics(),
+                        itemCount: quiz.translations.length,
+                          itemBuilder: (context, index) {
+
+                            return QuestionContainer(
+
+                              title: quiz.translations[index].title,
+                              subTitle: 'attempts taken 3',
+                              trailIcon: AssetPath.circleCorrectImage,
+                              percentage: 0.8,
+                              onTap: () {
+                                Get.to(() => Quiz());
+                              },
+                            );
+                          },
                       );
                     },
                   ),

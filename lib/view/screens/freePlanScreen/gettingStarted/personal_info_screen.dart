@@ -41,6 +41,7 @@ class _PersonalInfoState extends State<PersonalInfo> {
   @override
   void initState() {
     super.initState();
+    userController.fetchUsersData();
     selectedGender = gender.first;
     selectedClass = classList.first;
   }
@@ -153,16 +154,15 @@ class _PersonalInfoState extends State<PersonalInfo> {
                 height: AppStyles.screenHeightPercentage(context, 0.025),
               ),
             Obx((){
-              print("obx email: ${userController.userData?.email}");
               return CustomTextFormField(
                 controller: userNameController,
-                labelText: userController.userData?.email,
+                labelText: userController.userData?.username,
                 hintText: '@example',
               );
             }),
               CustomTextFormField(
                 controller: fullNameController,
-                labelText: userController.userData?.username,
+                labelText: userController.userData?.name,
                 hintText: '@example',
               ),
               GestureDetector(
@@ -200,7 +200,7 @@ class _PersonalInfoState extends State<PersonalInfo> {
                   Expanded(
                     child: CustomTextFormField(
                       controller: countryController,
-                      labelText: userController.userData?.username,
+                      labelText: userController.userData?.country,
                       hintText: 'example',
                     ),
                   ),
@@ -208,7 +208,7 @@ class _PersonalInfoState extends State<PersonalInfo> {
                   Expanded(
                     child: CustomTextFormField(
                       controller: cityController,
-                      labelText: 'City Name',
+                      labelText:  userController.userData?.city,
                       hintText: 'example',
                     ),
                   ),
@@ -216,7 +216,7 @@ class _PersonalInfoState extends State<PersonalInfo> {
               ),
               CustomTextFormField(
                 controller: schoolController,
-                labelText: userController.userData?.username,
+                labelText: userController.userData?.school,
                 hintText: 'example',
               ),
 

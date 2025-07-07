@@ -19,6 +19,8 @@ class UserApiService {
         },
       );
 
+      print(response.statusCode);
+
       if (response.statusCode == 200) {
         final jsonResponse = json.decode(response.body);
         return UserResponse.fromJson(jsonResponse);

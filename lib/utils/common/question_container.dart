@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:zidney/controller/quiz/quiz_controller.dart';
 import 'package:zidney/utils/asset_path.dart';
 import 'package:zidney/utils/common/practice_button.dart';
 
@@ -8,7 +9,7 @@ import '../app_colors.dart';
 import '../styles/app_text_styles.dart';
 
 class QuestionContainer extends StatelessWidget {
-  const QuestionContainer({
+   QuestionContainer({
     super.key,
     required this.title,
     required this.subTitle,
@@ -27,6 +28,8 @@ class QuestionContainer extends StatelessWidget {
   final bool showTrailIcon;
   final double percentage;
   final VoidCallback onTap;
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -57,12 +60,15 @@ class QuestionContainer extends StatelessWidget {
                 spacing: 15,
                 children: [
                   if (showIcon) Image.asset(imageIcon, scale: 4),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(title, style: AppTextStyle.bold14),
-                      Text(subTitle, style: AppTextStyle.regular12),
-                    ],
+                  SizedBox(
+                    width: 190,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(title, style: AppTextStyle.bold14,overflow: TextOverflow.ellipsis,),
+                        Text(subTitle, style: AppTextStyle.regular12),
+                      ],
+                    ),
                   ),
                 ],
               ),
@@ -72,15 +78,15 @@ class QuestionContainer extends StatelessWidget {
                 child: Image.asset(trailIcon, scale: 4),
               )
                   : PracticeButton(
-                showText: true,
-                buttonText: 'Practice',
-                showMoreShadow: true,
-                buttonColor: AppColors.primaryColor.value,
-                shadowColor: AppColors.primaryShadow.value,
-                textColor: AppColors.whiteColor,
-                iconColor: AppColors.whiteColor,
-                onTap: onTap,
-              ),
+                                  showText: true,
+                                  buttonText: 'Practice',
+                                  showMoreShadow: true,
+                                  buttonColor: AppColors.primaryColor.value,
+                                  shadowColor: AppColors.primaryShadow.value,
+                                  textColor: AppColors.whiteColor,
+                                  iconColor: AppColors.whiteColor,
+                                  onTap: onTap,
+                                ),
             ],
           ),
         ),

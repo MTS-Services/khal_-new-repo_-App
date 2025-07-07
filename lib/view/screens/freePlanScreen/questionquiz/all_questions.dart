@@ -6,10 +6,11 @@ import 'package:zidney/utils/asset_path.dart';
 import 'package:zidney/utils/common/question_container.dart';
 import 'package:zidney/view/screens/freePlanScreen/questionquiz/many_part_qustion.dart';
 import 'package:zidney/view/screens/freePlanScreen/questionquiz/question.dart';
+import '../../../../controller/question/question_controller.dart';
 import '../../../../utils/app_style.dart';
 
 class AllQuestions extends StatefulWidget {
-  const AllQuestions({super.key});
+   AllQuestions({super.key});
 
   @override
   State<AllQuestions> createState() => _AllQuestionsState();
@@ -17,6 +18,7 @@ class AllQuestions extends StatefulWidget {
 
 class _AllQuestionsState extends State<AllQuestions> {
   bool isSelected = true;
+  final _questionController=Get.put(QuestionController());
 
   @override
   Widget build(BuildContext context) {
@@ -36,12 +38,13 @@ class _AllQuestionsState extends State<AllQuestions> {
               child: Padding(
                 padding: const EdgeInsets.only(right: 25),
                 child: ListView.builder(
-                  itemCount: 10,
+                  itemCount: _questionController.questions.length,
                   itemBuilder: (context, index) {
+                    final question=_questionController.questions[index];
                     return GestureDetector(
                       onTap: () => Get.to(() => Question()),
                       child: QuestionContainer(
-                        title: 'Question ${index + 1}',
+                        title: question.translations[0].title,
                         subTitle: 'attempts taken 3',
                         trailIcon: AssetPath.circleCorrectImage,
                         percentage: 0.4,

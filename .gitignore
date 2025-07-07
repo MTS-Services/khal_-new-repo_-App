@@ -33,6 +33,7 @@ migrate_working_dir/
 .pub/
 /build/
 /lib/stripe_services/services.dart
+/lib/api_services/api_contstants/api_urls.dart
 # Symbolication related
 app.*.symbols
 
