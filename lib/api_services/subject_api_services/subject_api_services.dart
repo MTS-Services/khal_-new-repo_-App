@@ -19,6 +19,7 @@ class SubjectApiService {
         },
       );
 
+      print("subject response status: ${response.statusCode}");
       if (response.statusCode == 200) {
         return SubjectResponse.fromJson(json.decode(response.body));
       } else {
