@@ -5,7 +5,7 @@ import 'package:zidney/utils/common/custom_app_bar.dart';
 import 'package:zidney/utils/common/custom_label.dart';
 import 'package:zidney/utils/common/question_container.dart';
 import 'package:zidney/view/screens/freePlanScreen/questionquiz/prol_question.dart';
-import 'package:zidney/view/screens/freePlanScreen/questionquiz/question.dart';
+import 'package:zidney/view/screens/freePlanScreen/questionquiz/question_description.dart';
 
 class TopicScreen extends StatelessWidget {
   const TopicScreen({super.key});
@@ -45,7 +45,7 @@ class TopicScreen extends StatelessWidget {
                           trailIcon: AssetPath.finishIcon,
                           percentage: 0.7,
                           onTap: () {
-                            Get.to(() => Question());
+
                           },
                         ),
                       );
