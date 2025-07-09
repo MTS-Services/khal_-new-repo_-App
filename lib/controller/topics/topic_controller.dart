@@ -19,7 +19,7 @@ class TopicController extends GetxController {
     try {
       isLoading(true);
       errorMessage('');
-      final response = await TopicApiService.getTopics();
+      final response = await TopicApiService.getTopics(1);
       topics.assignAll(response.data);
     } catch (e) {
       errorMessage(e.toString());
