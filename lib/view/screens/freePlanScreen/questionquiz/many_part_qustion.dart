@@ -8,6 +8,7 @@ import 'package:zidney/view/screens/freePlanScreen/questionquiz/widgets/custom_c
 import '../../../../utils/common/custom_app_bar.dart';
 
 class ManyPartQuestion extends StatelessWidget {
+
   const ManyPartQuestion({super.key});
 
   @override

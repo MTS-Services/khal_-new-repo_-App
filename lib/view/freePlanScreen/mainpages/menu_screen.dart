@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:zidney/utils/app_colors.dart';
 import 'package:zidney/utils/app_style.dart';
 import 'package:zidney/utils/asset_path.dart';
 import 'package:zidney/utils/common/custom_app_bar.dart';
+import 'package:zidney/view/screens/freePlanScreen/gettingStarted/personal_info_screen.dart';
 import 'package:zidney/view/screens/freePlanScreen/questionquiz/widgets/custom_container.dart';
 
 class MenuScreen extends StatelessWidget {
@@ -49,14 +52,19 @@ class MenuScreen extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(width: 18),
-                  Text(
-                    'Personal Information',
-                    style: TextStyle(
-                      fontSize: AppStyles.fontM,
-                      fontWeight: AppStyles.weightRegular,
-                      color: AppColors.chocolate.value,
-                    ),
-                  ),
+                 GestureDetector(
+                   onTap: (){
+                     Get.to(()=>PersonalInfo());
+                   },
+                   child:  Text(
+                     'Personal Information',
+                     style: TextStyle(
+                       fontSize: AppStyles.fontM,
+                       fontWeight: AppStyles.weightRegular,
+                       color: AppColors.chocolate.value,
+                     ),
+                   ),
+                 )
                 ],
               ),
               SizedBox(height: 14),
