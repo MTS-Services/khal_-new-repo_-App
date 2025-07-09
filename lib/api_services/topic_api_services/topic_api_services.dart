@@ -8,8 +8,8 @@ import '../../models/topic/topic_model.dart';
 class TopicApiService {
 
 
-  static Future<TopicResponse> getTopics() async {
-    final url = Uri.parse('${ApiUrls.baseUrl}/topics');
+  static Future<TopicResponse> getTopics(int id) async {
+    final url = Uri.parse('${ApiUrls.baseUrl}/course-topics/$id');
 
     try {
       final response = await http.get(
@@ -20,6 +20,7 @@ class TopicApiService {
         },
       );
 
+      print("topic response status: ${response.statusCode}");
 
       if (response.statusCode == 200) {
         return TopicResponse.fromJson(json.decode(response.body));

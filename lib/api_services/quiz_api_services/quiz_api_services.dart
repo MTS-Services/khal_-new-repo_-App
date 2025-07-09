@@ -20,6 +20,7 @@ class QuizApiService {
         },
       );
 
+      print("quiz response status: ${response.statusCode}");
 
       if (response.statusCode == 200) {
         return QuizResponse.fromJson(json.decode(response.body));
