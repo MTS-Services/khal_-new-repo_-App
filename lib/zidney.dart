@@ -9,6 +9,7 @@ import 'package:zidney/view/freePlanScreen/mainpages/home_screen.dart';
 import 'package:zidney/view/freePlanScreen/mainpages/main_bottom_nav_screen.dart';
 import 'package:zidney/view/screens/freePlanScreen/gettingStarted/personal_info_screen.dart';
 import 'package:zidney/view/screens/freePlanScreen/menusubpages/plans.dart';
+import 'package:zidney/view/screens/freePlanScreen/questionquiz/all_questions.dart';
 
 
 class Zidney extends StatelessWidget {
@@ -24,7 +25,7 @@ class Zidney extends StatelessWidget {
         return GetMaterialApp(
           debugShowCheckedModeBanner: false,
           theme: themData(),
-          home: BookmarkScreen()
+          home: MainBottomNavScreen()
         );
       },
     );
