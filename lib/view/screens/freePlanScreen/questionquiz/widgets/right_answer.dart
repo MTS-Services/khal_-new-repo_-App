@@ -5,7 +5,7 @@ import 'package:zidney/utils/app_colors.dart';
 import 'package:zidney/utils/app_style.dart';
 import 'package:zidney/utils/asset_path.dart';
 import 'package:zidney/utils/styles/app_text_styles.dart';
-import 'package:zidney/view/screens/freePlanScreen/questionquiz/question.dart';
+import 'package:zidney/view/screens/freePlanScreen/questionquiz/question_description.dart';
 import 'package:zidney/view/screens/freePlanScreen/questionquiz/widgets/custom_button.dart';
 import 'package:zidney/view/screens/freePlanScreen/questionquiz/widgets/details_ans_check_progress_bar.dart';
 
@@ -133,7 +133,7 @@ class RightAnswer extends StatelessWidget {
             width: AppStyles.screenWidthPercentage(context, 0.90),
             onTap: () {
               onSubmit(answerController.text);
-              Get.to(() => Question());
+
             },
           ),
         ],

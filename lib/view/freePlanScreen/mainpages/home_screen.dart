@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:zidney/controller/course/course_controller.dart';
 import 'package:zidney/controller/topics/topic_controller.dart';
 import 'package:zidney/utils/app_style.dart';
 import 'package:zidney/utils/asset_path.dart';
@@ -22,6 +23,7 @@ class HomeScreen extends StatelessWidget {
 
 final _topicController=Get.put(TopicController());
 final _subjectController=Get.put(SubjectController());
+final _courseController=Get.put(CourseController());
   @override
   Widget build(BuildContext context) {
     final BottomNavController controller = Get.find();
@@ -90,7 +92,7 @@ final _subjectController=Get.put(SubjectController());
               ),
               SizedBox(height: 35.h),
               Text(
-                'Practicing Topics',
+                'Practicing Course',
                 style: AppTextStyle.bold16.apply(fontSizeFactor: 1.2),
               ),
               SizedBox(height: 15.h),
@@ -98,21 +100,30 @@ final _subjectController=Get.put(SubjectController());
               ListView.builder(
                 shrinkWrap: true,
                 physics: NeverScrollableScrollPhysics(),
-                itemCount: _topicController.topics.length,
+                itemCount: _courseController.courses.length,
                 itemBuilder: (context, index) {
-                  final topic=_topicController.topics[index];
-                return  QuestionContainer(
-                  title: topic.translations[0].name,
-                  subTitle: "Chapter: ${topic.courseId}",
-                  showTrailIcon: false,
-                  showIcon: true,
-                  imageIcon: AssetPath.accessIcon,
-                  percentage: 0.5,
-                  onTap: () {
-                    controller.openWithChild(TopicScreen());
-                  },
-                );
+                  final course=_courseController.courses[index];
+                // return  ListView.builder(
+                //   shrinkWrap: true,
+                //     physics: NeverScrollableScrollPhysics(),
+                //     itemCount: course.translations.length,
+                //     itemBuilder: (context, index) {
+                //       return QuestionContainer(
+                //       title: course.translations[index].name,
+                //       subTitle: "Chapter: ${course.statusLabel}",
+                //       showTrailIcon: false,
+                //       showIcon: true,
+                //       imageIcon: AssetPath.accessIcon,
+                //       percentage: 0.5,
+                //       onTap: () {
+                //         controller.openWithChild(TopicScreen());
+                //       },
+                //     );
+                //     }
+                // );
+                  return QuestionContainer(title: course.translations.first.name, subTitle: "Chapter 1", onTap: (){}, percentage: .5);
               },),
+
 
               Text(
                 'All Subjects',
@@ -132,7 +143,7 @@ final _subjectController=Get.put(SubjectController());
             ],
           ),
         ),
-      ),   
+      ),
     );
   }
 }
