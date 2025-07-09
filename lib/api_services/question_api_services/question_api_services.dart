@@ -20,6 +20,7 @@ class QuestionApiService {
         },
       );
 
+      print("question response status: ${response.statusCode}");
 
       if (response.statusCode == 200) {
         return QuestionResponse.fromJson(json.decode(response.body));

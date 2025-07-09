@@ -5,33 +5,61 @@ import '../../models/course/course_model.dart';
 
 
 class CourseController extends GetxController {
-  var isLoading = false.obs;
-  var courses = <Course>[].obs;
-  var errorMessage = ''.obs;
+  final isLoading = false.obs;
+  final errorMessage = ''.obs;
+  final courses = <CourseData>[].obs;
 
+  @override
+  void onInit() {
+    fetchCourses();
+    super.onInit();
+  }
 
   Future<void> fetchCourses() async {
     try {
       isLoading(true);
       errorMessage('');
-      final response = await CourseApiService.fetchCourses();
-      print(response.data);
+      final response = await CourseApiService.getCourses(1);
       courses.assignAll(response.data);
     } catch (e) {
-      print(e.toString());
       errorMessage(e.toString());
-     // Get.snackbar('Error', 'Failed to fetch courses: $e');
+      Get.snackbar(
+        'Error',
+        'Failed to fetch courses for $e',
+        snackPosition: SnackPosition.BOTTOM,
+      );
     } finally {
       isLoading(false);
     }
   }
 
-  @override
-  void onInit() {
-    // TODO: implement onInit
-    fetchCourses();
-    super.onInit();
+  Future<void> fetchCoursesBySubject(int subjectId) async {
+    try {
+      isLoading(true);
+      errorMessage('');
+      final response = await CourseApiService.getCoursesBySubject(subjectId);
+      courses.assignAll(response.data);
+    } catch (e) {
+      errorMessage(e.toString());
+      Get.snackbar(
+        'Error',
+        'Failed to fetch courses for subject',
+        snackPosition: SnackPosition.BOTTOM,
+      );
+    } finally {
+      isLoading(false);
+    }
   }
 
+  List<CourseData> getCoursesForSubject(int subjectId) {
+    return courses.where((course) => course.subjectId == subjectId).toList();
+  }
 
+  CourseData? getCourseById(int courseId) {
+    try {
+      return courses.firstWhere((course) => course.id == courseId);
+    } catch (e) {
+      return null;
+    }
+  }
 }

@@ -19,7 +19,7 @@ class UserApiService {
         },
       );
 
-      print(response.statusCode);
+      print("user response status: ${response.statusCode}");
 
       if (response.statusCode == 200) {
         final jsonResponse = json.decode(response.body);
